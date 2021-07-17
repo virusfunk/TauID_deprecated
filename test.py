@@ -3,10 +3,12 @@ os.environ["CUDA_VISIBLE_DEVICES"]="1"
 from dataset import TauDatasetTest
 import tensorflow as tf
 import matplotlib.pyplot as plt
-from model import get_model
+from model import get_baseline
 import sklearn.metrics
 import itertools
 from matplotlib.lines import Line2D
+import numpy as np
+
 
 def plot_confusion_matrix(cm, target_names=None, cmap=None, normalize=True, labels=True, title='Confusion matrix'):
     accuracy = np.trace(cm) / float(np.sum(cm))
@@ -58,7 +60,6 @@ def plot_multilabel_auc(model, x_test, y_test, labels, n_classes=6):
     fpr  = {}
     tpr  = {}
     auc1 = {}
-    %matplotlib inline
     colors  = ['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061']
     fig, ax = plt.subplots(figsize=(10, 10))
     for i, label in enumerate(labels):
@@ -79,7 +80,7 @@ def plot_multilabel_auc(model, x_test, y_test, labels, n_classes=6):
 
 
 def main():
-    model = get_model()
+    model = get_baseline()
     model.compile(optimizer='Adam',
               loss='categorical_crossentropy',
               metrics=['acc'])
@@ -104,11 +105,10 @@ def main():
                   r'Z->$\tau$->$\pi^{\mp}$$\pi^{0}\nu$',
                   r'Z->$\tau$->$\pi^{\mp}$$\pi^{0}$$\pi^{0}\nu$',
                   r'Z->q$\bar{q}$']
-        
     plot_confusion_matrix(cf, target_names=labels)
-    
     testset = TauDatasetTest(6*3000)
     x_test, y_test = testset[0]
     plot_multilabel_auc(model, x_test=x_test, y_test=y_test, labels=labels)
     
-    
+if __name__ == "__main__":
+    main()

@@ -4,10 +4,10 @@ from tensorflow.keras import optimizers
 from dataset import TauDatasetTrain, TauDatasetValidation
 import tensorflow as tf
 import matplotlib.pyplot as plt
-from model import get_model
+from model import get_baseline
 
 def main():
-    model = get_model()
+    model = get_baseline()
     model.summary()
     model.compile(optimizer='Nadam',
               loss='categorical_crossentropy',

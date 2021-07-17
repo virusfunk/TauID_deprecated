@@ -7,9 +7,11 @@
     * Detail 2 : [PDG/tau Branching Fractions](https://pdg.lbl.gov/2011/reviews/rpp2011-rev-tau-branching-fractions.pdf)
 
 ## Environment
-* Tensorflow nightly version is used because Nvidia RTX 3090 needs cuDNN 8.
+* CUDA 11.1 & cuDNN 8.
+* Tensorflow nightly version(>=2.5) is used because Nvidia RTX 3090 needs cuDNN 8.
 * ROOT 6.24.00 is used.
     * ROOT 6.20.04 seems to have a bug in loading data to `numpy.ndarray`.
+
 
 ## Dataset
 
@@ -23,9 +25,3 @@
 
 * Detail : [purol/dual-readout repo.](https://github.com/purol/dual-readout). 
 
-## Train  
-
-
-
-
-## Test

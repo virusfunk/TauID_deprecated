@@ -1,7 +1,7 @@
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Dense, MaxPool2D, Dropout, Conv2D, Activation, Input, Flatten
+from tensorflow.keras.layers import Dense, MaxPool2D, Dropout, Conv2D, Activation, Input, Flatten, Add
 
-def get_model():
+def get_baseline():
     input_images = Input(shape=(256,256,4))
 
     x = Conv2D(32, 3, 1)(input_images)
@@ -32,3 +32,6 @@ def get_model():
     output_onehots = Dense(6, activation='softmax')(x)
     model = Model(inputs=input_images, outputs=output_onehots)
     return model
+
+
+
