@@ -40,7 +40,7 @@ def get_baseline():
 num_classes = 6
 input_shape = (256, 256, 4)
 image_size = 256
-patch_size = 16
+patch_size = 32
 num_patches = (image_size // patch_size) ** 2
 projection_dim = 64
 num_heads = 4
@@ -49,7 +49,7 @@ transformer_units = [
     projection_dim,
 ]  # Size of the transformer layers
 transformer_layers = 8
-mlp_head_units = [2048, 1024]
+mlp_head_units = [1024, 512]
 
 
 def mlp(x, hidden_units, dropout_rate):
