@@ -23,5 +23,11 @@
 * One hot encoding is applied for labelling.
 
 
-* Detail : [purol/dual-readout repo.](https://github.com/purol/dual-readout). 
+* Detail : [purol/dual-readout repo.](https://github.com/purol/dual-readout) 
+
+## Model available
+
+* Vanila Convolutional Neural Network (CNN)
+* Vision Transformer (ViT)
+
 

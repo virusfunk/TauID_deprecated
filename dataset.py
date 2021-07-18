@@ -116,7 +116,7 @@ class TauDatasetTrain(Sequence):
             Z2tau2pipipipizeroLabel = np.array([0,0,1,0,0,0])
             images.append(Z2tau2pipipipizeroImage)
             labels.append(Z2tau2pipipipizeroLabel)
-        return np.array(images), np.array(labels)  
+        return np.array(images), np.array(labels)
         
 class TauDatasetValidation(Sequence):
     def __init__(self, batch_size=6*20):
@@ -230,7 +230,7 @@ class TauDatasetValidation(Sequence):
             Z2tau2pipipipizeroLabel = np.array([0,0,1,0,0,0])
             images.append(Z2tau2pipipipizeroImage)
             labels.append(Z2tau2pipipipizeroLabel)
-        return np.array(images), np.array(labels)  
+        return np.array(images), np.array(labels)
         
         
 class TauDatasetTest(Sequence):
