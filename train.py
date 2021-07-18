@@ -27,8 +27,8 @@ def main(args):
     trainset = TauDatasetTrain()
     valset = TauDatasetValidation()
     
-    if finetune:
-        model.load_weights(finetune)
+    if args.finetune:
+        model.load_weights(args.finetune)
     
     history = model.fit(trainset, validation_data=valset, shuffle=True, epochs=100,
                    callbacks=[tf.keras.callbacks.ModelCheckpoint(filepath=f'./best_weights_{args.model}.hdf5',
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description='Training TauID')
     parser.add_argument('--model', dest='model', default='ViT')
-    parser.add_argument('--finetune', dest='finetune', default='best_weights_ViT_fix.hfd5')
+    parser.add_argument('--finetune', dest='finetune', default=None)
     args = parser.parse_args()
     main(args)
    
