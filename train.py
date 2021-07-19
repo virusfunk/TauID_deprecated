@@ -35,7 +35,7 @@ def main(args):
                                                                  save_best_only=True,
                                                                  monitor='val_loss',
                                                                  mode='min'),
-                             tf.keras.callbacks.EarlyStopping(monitor='val_loss', mode='min', patience=5)])
+                             tf.keras.callbacks.EarlyStopping(monitor='val_loss', mode='min', patience=15)])
     
 
     plt.plot(history.history['loss'], label='train_loss')
